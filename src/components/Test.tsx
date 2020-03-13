@@ -1,6 +1,7 @@
 import React from 'react';
+import { Test as t } from '@/common/type';
 
-function Test({ test }: any) {
+function Test({ test }: t) {
   return (
     <div className="test">
       {test}
