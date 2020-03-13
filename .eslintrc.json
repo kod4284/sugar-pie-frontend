@@ -4,7 +4,7 @@
     "import/resolver": {
       "alias": {
         "map": [["@", "./src"]],
-        "extensions": [".js", ".tsx", ".css", ".scss"]
+        "extensions": [".js", ".ts", ".tsx", ".css", ".scss"]
       }
     }
   },
@@ -14,6 +14,13 @@
     
   },
   "rules": {
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "max-len": ["error", 80, 2, {
+      "ignoreUrls": true,
+      "ignoreComments": false,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": false,
+      "ignoreTemplateLiterals": false
+    }]
   }
 }
