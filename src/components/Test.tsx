@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Test() {
+function Test({ test }: any) {
   return (
-    <div className="test">Test</div>
+    <div className="test">
+      {test}
+    </div>
   );
 }
 

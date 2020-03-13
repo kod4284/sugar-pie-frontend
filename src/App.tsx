@@ -1,9 +1,16 @@
 import React from 'react';
-import Test from '@/components/Test';
+import { Route, Switch } from 'react-router-dom';
+import About from '@/pages/about';
+import Home from '@/pages/home';
 
 function App() {
   return (
-    <Test />
+    <div>
+      <Switch>
+        <Route exact path={['/', 'home']} component={Home} />
+        <Route exact path="/about" component={About} />
+      </Switch>
+    </div>
   );
 }
 
