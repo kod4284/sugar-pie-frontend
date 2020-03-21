@@ -6,13 +6,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '@/modules';
 import { createLogger } from 'redux-logger';
+import ReduxThunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 
 const logger = createLogger();
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger)),
+  composeWithDevTools(applyMiddleware(logger, ReduxThunk)),
 );
 
 ReactDOM.render(

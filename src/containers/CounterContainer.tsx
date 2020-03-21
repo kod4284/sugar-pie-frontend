@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { increase, decrease } from '@/modules/counter';
+import { increaseAsync, decreaseAsync } from '@/modules/counter';
 import Counter from '@/components/Counter';
 import { CounterContainerProps, State } from '@/common/type';
 
@@ -23,7 +23,7 @@ export default connect(
     number: state.counter,
   }),
   {
-    increaseConnect: increase,
-    decreaseConnect: decrease,
+    increaseConnect: increaseAsync,
+    decreaseConnect: decreaseAsync,
   },
 )(CounterContainer);
