@@ -17,7 +17,7 @@ export const getUsers = createAction(GET_USERS);
 function* getPostSaga(action: any) {
   yield put(startLoading(GET_POST));
   try {
-    const post: any = call(api.getPost, action.payload);
+    const post: any = yield call(api.getPost, action.payload);
     yield put({
       type: GET_POST_SUCCESS,
       payload: post.data,
@@ -35,7 +35,7 @@ function* getPostSaga(action: any) {
 function* getUsersSaga() {
   yield put(startLoading(GET_USERS));
   try {
-    const users: any = call(api.getUsers);
+    const users: any = yield call(api.getUsers);
     yield put({
       type: GET_USERS_SUCCESS,
       payload: users.data,
