@@ -2,7 +2,7 @@ export interface Test {
   test: String,
 }
 
-export interface State extends Sample {
+export interface State extends Sample, Loading {
   counter: number
 }
 export interface Sample {
@@ -13,6 +13,12 @@ export interface Sample {
     },
     post: Post,
     users: Array<Users>,
+  }
+}
+
+export interface Loading {
+  loading: {
+    type: string,
   }
 }
 
