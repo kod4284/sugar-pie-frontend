@@ -2,8 +2,32 @@ export interface Test {
   test: String,
 }
 
-export interface State {
+export interface State extends Sample {
   counter: number
+}
+export interface Sample {
+  sample: {
+    loading:{
+      GET_POST: boolean,
+      GET_USERS: boolean,
+    },
+    post: Post,
+    users: Array<Users>,
+  }
+}
+
+export interface Users {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+}
+
+export interface Post {
+  userId: number,
+  id: number,
+  title: string,
+  body: string,
 }
 
 export interface CounterProps {

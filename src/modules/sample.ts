@@ -27,7 +27,7 @@ export const getPost = (id: number) => async (dispatch: Function) => {
   }
 };
 
-export const getUser = () => async (dispatch: any) => {
+export const getUsers = () => async (dispatch: any) => {
   dispatch({ type: GET_USERS });
   try {
     const response: any = await api.getUsers();
