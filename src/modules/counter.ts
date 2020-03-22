@@ -2,8 +2,9 @@ import { createAction, handleActions } from 'redux-actions';
 import {
   delay,
   put,
-  takeEvery,
   takeLatest,
+  select,
+  throttle,
 } from 'redux-saga/effects';
 
 const INCREASE = 'counter/INCREASE';
@@ -21,6 +22,9 @@ export const decreaseAsync = createAction(DECREASE_ASYNC, () => undefined);
 function* increaseSaga() {
   yield delay(1000);
   yield put(increase());
+  const number = yield select(state => state.counter);
+  // eslint-disable-next-line no-console
+  console.log(`Current value is ${number}.`);
 }
 
 function* decreaseSaga() {
@@ -29,7 +33,7 @@ function* decreaseSaga() {
 }
 
 export function* counterSaga() {
-  yield takeEvery(INCREASE_ASYNC, increaseSaga);
+  yield throttle(3000, INCREASE_ASYNC, increaseSaga);
   yield takeLatest(DECREASE_ASYNC, decreaseSaga);
 }
 const initialState = 0;
