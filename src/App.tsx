@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import About from '@/pages/about';
+import Counter from '@/pages/counter';
 import Home from '@/pages/home';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path={['/', '/home']} component={Home} />
-        <Route exact path="/about" component={About} />
+        <Route exact path="/counter" component={Counter} />
       </Switch>
     </div>
   );
