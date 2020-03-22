@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import SampleComponent from '@/components/Sample';
 import { getPost, getUsers } from '@/modules/sample';
-import { Sample } from '@/common/type';
 
 function SampleContainer({
   getPostConnect,
@@ -27,11 +26,11 @@ function SampleContainer({
 }
 
 export default connect(
-  ({ sample }: Sample) => ({
+  ({ sample, loading }: any) => ({
     post: sample.post,
     users: sample.users,
-    loadingPost: sample.loading.GET_POST,
-    loadingUsers: sample.loading.GET_USERS,
+    loadingPost: loading['sample/GET_POST'],
+    loadingUsers: loading['sample/GET_USERS'],
   }),
   {
     getPostConnect: getPost,
