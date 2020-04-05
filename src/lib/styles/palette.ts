@@ -34,7 +34,7 @@ const palette = {
     '#391085',
     '#22075e',
     '#120338',
-  ]
+  ],
 };
 
 export default palette;
