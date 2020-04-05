@@ -17,6 +17,7 @@
     "@types/redux-actions": "^2.6.1",
     "@types/redux-logger": "^3.0.7",
     "axios": "^0.19.2",
+    "craco-antd": "^1.14.1",
     "flat": "^5.0.0",
     "i18next": "^19.3.4",
     "i18next-browser-languagedetector": "^4.0.2",
