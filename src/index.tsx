@@ -4,13 +4,17 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer, { rootSaga } from '@/modules';
 import { createLogger } from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
+import { ThemeProvider } from 'styled-components';
+
+import themes from '@/lib/styles/theme';
+import rootReducer, { rootSaga } from '@/modules';
+import '@/i18n';
+
 import './index.css';
 import App from './App';
-import '@/i18n';
 
 const logger = createLogger();
 const sagaMiddleware = createSagaMiddleware();
@@ -22,10 +26,12 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
+  <ThemeProvider theme={themes}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </ThemeProvider>,
   document.getElementById('root'),
 );
