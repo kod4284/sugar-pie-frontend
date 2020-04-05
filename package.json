@@ -37,7 +37,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "nodemon -w craco.config.js -w src/lib/styles/antd/customTheme.less --exec craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
@@ -57,6 +57,7 @@
   "devDependencies": {
     "eslint-config-airbnb-typescript": "^7.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.20.1"
+    "eslint-plugin-import": "^2.20.1",
+    "nodemon": "^2.0.2"
   }
 }

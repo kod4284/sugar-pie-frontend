@@ -1,5 +1,6 @@
 const CracoAntDesignPlugin = require('craco-antd');
 const path = require('path');
+process.env.BROWSER = "none";
 
 module.exports = {
   webpack: {
