@@ -1,3 +1,3 @@
 export default {
-  'sample.test': '테스트',
+  'main.title': 'SUGAR PIE',
 };

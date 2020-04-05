@@ -7,8 +7,6 @@ import PostPage from '@/pages/PostPage';
 import RegisterPage from '@/pages/RegisterPage';
 import WritePage from '@/pages/WritePage';
 
-
-
 function App() {
   return (
     <>
