@@ -18,13 +18,12 @@ const StyledButton = styled<any>(AntdButton)`
     `}
 `;
 
-
 function Button(props: any) {
   return (
     <div>
       <StyledButton type="primary" {...props} />
     </div>
-  )
+  );
 }
 
 export default Button;
