@@ -42,11 +42,15 @@ const Footer = styled.div`
   }
 `;
 
-function AuthForm() {
+const ButtonWithMarginTop = styled(Button)`
+  margin-top: 1rem;
+`;
+
+function AuthForm({ type }: { type: string }) {
   const { t } = useTranslation();
   return (
     <AuthFormBlock>
-      <h3>{t('login')}</h3>
+      <h3>{t(type)}</h3>
       <form>
         <StyledInput
           autoComplete="username"
@@ -59,10 +63,22 @@ function AuthForm() {
           placeholder={t('password')}
           type="password"
         />
-        <Button>{t('login')}</Button>
+        {type === 'register' && (
+          <StyledInput
+            autoComplete="new-password"
+            name="passwordConfirm"
+            placeholder={t('confirm.password')}
+            type="password"
+          />
+        )}
+        <ButtonWithMarginTop fullWidth>{t('login')}</ButtonWithMarginTop>
       </form>
       <Footer>
-        <Link to="/register">{t('register')}</Link>
+        {type === 'login' ? (
+          <Link to="/register">{t('register')}</Link>
+        ) : (
+          <Link to="/login">{t('login')}</Link>
+        )}
       </Footer>
     </AuthFormBlock>
   );
