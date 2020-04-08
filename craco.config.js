@@ -1,6 +1,7 @@
 const CracoAntDesignPlugin = require('craco-antd');
 const path = require('path');
-process.env.BROWSER = "none";
+
+process.env.BROWSER = 'none';
 
 module.exports = {
   webpack: {
@@ -21,9 +22,9 @@ module.exports = {
       options: {
         customizeThemeLessPath: path.join(
           __dirname,
-          "src/lib/styles/antd/customTheme.less"
-        )
-      }
+          'src/lib/styles/antd/customTheme.less',
+        ),
+      },
     },
   ],
 };
