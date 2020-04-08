@@ -22,6 +22,7 @@
       "ignoreRegExpLiterals": true,
       "ignoreStrings": false,
       "ignoreTemplateLiterals": false
-    }]
+    }],
+    "react/jsx-props-no-spreading": "off"
   }
 }
