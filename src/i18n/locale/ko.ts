@@ -1,4 +1,6 @@
 export default {
+  en: 'English',
+  ko: '한국어',
   login: '로그인',
   register: '회원가입',
   username: '아이디',
