@@ -32,7 +32,6 @@ const WhiteBox = styled.div`
     letter-spacing: 2px;
     a {
       color: black;
-      
     }
     a:hover {
       color: ${props => props.theme.primaryColor};

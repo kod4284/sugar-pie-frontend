@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import palette from '@/lib/styles/palette';
 import Button from '@/components/common/Button';
+import LocaleButton from '@/components/common/LocaleButton';
 
 const AuthFormBlock = styled.div`
   h3 {
@@ -32,9 +33,17 @@ const StyledInput = styled.input`
 
 const Footer = styled.div`
   margin-top: 2rem;
-  text-align: right;
+  div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
   a {
     color: ${palette.gray[6]};
+    white-space: nowrap;
+    padding: 0px 0px;
     text-decoration: underline;
     &:hover {
       color: ${palette.gray[9]};
@@ -46,8 +55,10 @@ const ButtonWithMarginTop = styled(Button)`
   margin-top: 1rem;
 `;
 
+
 function AuthForm({ type }: { type: string }) {
   const { t } = useTranslation();
+
   return (
     <AuthFormBlock>
       <h3>{t(type)}</h3>
@@ -71,11 +82,19 @@ function AuthForm({ type }: { type: string }) {
             type="password"
           />
         )}
-        <ButtonWithMarginTop fullWidth>{t('login')}</ButtonWithMarginTop>
+        <ButtonWithMarginTop fullwidth="true">{t('login')}</ButtonWithMarginTop>
       </form>
       <Footer>
         {type === 'login' ? (
-          <Link to="/register">{t('register')}</Link>
+          <div>
+            <LocaleButton style={{ borderRadius: '1rem' }} />
+            <Link
+              style={{ paddingLeft: '0.5rem', paddingRight: '0.5rem' }}
+              to="/register"
+            >
+              {t('register')}
+            </Link>
+          </div>
         ) : (
           <Link to="/login">{t('login')}</Link>
         )}
