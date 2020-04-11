@@ -2,14 +2,14 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Button as AntdButton } from 'antd';
 
-const StyledButton = styled<any>(AntdButton)`
+const StyledButton = styled(AntdButton)<{fullwidth: string}>`
   border-radius: 4px;
   font-weight: bold;
   font-size: 1rem;
   padding: 0.25rem 1rem;
   color: white;
 
-  ${props => props.fullWidth
+  ${props => props.fullwidth
     && css`
       padding-top: 0.75rem;
       padding-bottom: 2.2rem;
