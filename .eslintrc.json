@@ -4,14 +4,21 @@
     "import/resolver": {
       "alias": {
         "map": [["@", "./src"]],
-        "extensions": [".js", ".ts", ".tsx", ".css", ".scss"]
+        "extensions": [
+          ".js",
+          ".ts",
+          ".tsx",
+          ".css",
+          ".scss",
+          ".style.ts",
+          ".type.ts"
+        ]
       }
     }
   },
-  
+
   "parserOptions": {
     "project": "./tsconfig.json"
-    
   },
   "rules": {
     "arrow-parens": "off",
