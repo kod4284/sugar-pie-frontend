@@ -23,13 +23,29 @@
   "rules": {
     "arrow-parens": "off",
     "linebreak-style": 0,
-    "max-len": ["error", 80, 2, {
-      "ignoreUrls": true,
-      "ignoreComments": false,
-      "ignoreRegExpLiterals": true,
-      "ignoreStrings": false,
-      "ignoreTemplateLiterals": false
-    }],
-    "react/jsx-props-no-spreading": "off"
-  }
+    "max-len": [
+      "error",
+      80,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": false,
+        "ignoreTemplateLiterals": false
+      }
+    ],
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["draft"] }
+    ]
+  },
+  "overrides": [{
+    "files": [ "src/modules/*/*.ts" ],
+    "rules": {
+      "import/no-cycle": "off"
+    }
+  }]
 }
