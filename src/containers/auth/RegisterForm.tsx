@@ -7,24 +7,16 @@ import {
   LoginForm as LoginFormType,
 } from '@/modules/auth';
 import AuthForm from '@/components/auth/AuthForm';
+import { RegisterInputs } from '@/components/auth/AuthForm.type';
 
 interface Props {
   changeFieldConnect: Function,
   form: RegisterFormType | LoginFormType
 }
 
-function RegisterForm({ changeFieldConnect, form }: Props) {
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
-    changeFieldConnect({
-      form: 'register',
-      key: name,
-      value,
-    });
-  };
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+function RegisterForm({ form }: Props) {
+  const onSubmit = (data: RegisterInputs) => {
+    console.log(data);
   };
 
   useEffect(() => {
@@ -35,7 +27,6 @@ function RegisterForm({ changeFieldConnect, form }: Props) {
     <AuthForm
       type="register"
       form={form}
-      onChange={onChange}
       onSubmit={onSubmit}
     />
   );

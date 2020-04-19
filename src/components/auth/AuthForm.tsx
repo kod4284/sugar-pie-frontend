@@ -1,6 +1,8 @@
+/* eslint-disable react/style-prop-object */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
 
 import LocaleButton from '@/components/common/LocaleButton';
 import { AuthFormProps } from '@/components/auth/AuthForm.type';
@@ -11,37 +13,48 @@ import {
   Footer,
 } from '@/components/auth/AuthForm.style';
 
-function AuthForm({
-  type,
-  form,
-  onChange,
-  onSubmit,
-}: AuthFormProps) {
+interface Inputs {
+  username: string,
+  password: string,
+  passwordConfirm: string,
+}
+
+function AuthForm({ type, form, onSubmit }: AuthFormProps) {
   const { t } = useTranslation();
+  const { register, handleSubmit, errors } = useForm<Inputs>();
   return (
     <AuthFormBlock>
       <h3>{t(type)}</h3>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <StyledInput
           autoComplete="username"
           name="username"
           placeholder={t('username')}
-          onChange={onChange}
           value={form.username}
+          ref={register({ required: true })}
         />
+        {errors.username && <span>{t('username.required')}</span>}
         <StyledInput
           autoComplete="new-password"
           name="password"
           placeholder={t('password')}
           type="password"
+          ref={register({ required: true })}
         />
+        {errors.password && <span>{t('password.required')}</span>}
         {type === 'register' && (
-          <StyledInput
-            autoComplete="new-password"
-            name="passwordConfirm"
-            placeholder={t('confirm.password')}
-            type="password"
-          />
+          <>
+            <StyledInput
+              autoComplete="new-password"
+              name="passwordConfirm"
+              placeholder={t('confirm.password')}
+              type="password"
+              ref={register({ required: true })}
+            />
+            {errors.passwordConfirm && (
+              <span>{t('password.confirm.required')}</span>
+            )}
+          </>
         )}
         <ButtonWithMarginTop htmlType="submit" fullwidth="true">
           {t('login')}
