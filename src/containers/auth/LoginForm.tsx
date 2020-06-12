@@ -14,7 +14,7 @@ interface Props {
   form: RegisterForm | LoginFormType
 }
 
-function LoginForm({ form }: Props) {
+function LoginForm() {
   const onSubmit = (data: LoginInputs) => {
     console.log(data);
   };
@@ -26,7 +26,6 @@ function LoginForm({ form }: Props) {
   return (
     <AuthForm
       type="login"
-      form={form}
       onSubmit={onSubmit}
     />
   );

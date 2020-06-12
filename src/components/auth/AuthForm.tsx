@@ -19,7 +19,7 @@ interface Inputs {
   passwordConfirm: string,
 }
 
-function AuthForm({ type, form, onSubmit }: AuthFormProps) {
+function AuthForm({ type, onSubmit }: AuthFormProps) {
   const { t } = useTranslation();
   const { register, handleSubmit, errors } = useForm<Inputs>();
   return (
@@ -30,7 +30,6 @@ function AuthForm({ type, form, onSubmit }: AuthFormProps) {
           autoComplete="username"
           name="username"
           placeholder={t('username')}
-          value={form.username}
           ref={register({ required: true })}
         />
         {errors.username && <span>{t('username.required')}</span>}
@@ -72,7 +71,15 @@ function AuthForm({ type, form, onSubmit }: AuthFormProps) {
             </Link>
           </div>
         ) : (
-          <Link to="/login">{t('login')}</Link>
+          <div>
+            <LocaleButton style={{ borderRadius: '1rem' }} />
+            <Link
+              style={{ paddingLeft: '0.5rem', paddingRight: '0.5rem' }}
+              to="/login"
+            >
+              {t('login')}
+            </Link>
+          </div>
         )}
       </Footer>
     </AuthFormBlock>

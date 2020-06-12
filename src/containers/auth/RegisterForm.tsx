@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
   changeField,
   initializeForm,
+  register,
   RegisterForm as RegisterFormType,
   LoginForm as LoginFormType,
 } from '@/modules/auth';
@@ -14,19 +15,22 @@ interface Props {
   form: RegisterFormType | LoginFormType
 }
 
-function RegisterForm({ form }: Props) {
+function RegisterForm({ initializeFormConnect, registerConnect }: any) {
   const onSubmit = (data: RegisterInputs) => {
     console.log(data);
+    registerConnect({
+      username: data.username,
+      password: data.password,
+    });
   };
 
   useEffect(() => {
-    initializeForm('register');
-  }, []);
+    initializeFormConnect('register');
+  }, [initializeFormConnect]);
 
   return (
     <AuthForm
       type="register"
-      form={form}
       onSubmit={onSubmit}
     />
   );
@@ -39,5 +43,6 @@ export default connect(
   {
     initializeFormConnect: initializeForm,
     changeFieldConnect: changeField,
+    registerConnect: register,
   },
 )(RegisterForm);
