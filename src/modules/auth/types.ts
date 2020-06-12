@@ -15,6 +15,8 @@ export interface LoginForm {
 export interface State {
   register: RegisterForm,
   login: LoginForm
+  auth: null | string,
+  authError: null | string
 }
 
 export interface FormField {
