@@ -20,7 +20,7 @@
     "antd": "^4.1.1",
     "axios": "^0.19.2",
     "craco-antd": "^1.14.1",
-    "flat": "^5.0.0",
+    "flat": "^5.0.1",
     "i18next": "^19.3.4",
     "i18next-browser-languagedetector": "^4.0.2",
     "immer": "^6.0.3",
